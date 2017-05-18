@@ -7,15 +7,20 @@ PODS:
   - Realm (2.7.0):
     - Realm/Headers (= 2.7.0)
   - Realm/Headers (2.7.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
   - GoogleMaps
   - Realm
+  - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: c56f68db46f8d3ba973bf11b9804c3efeeaf93f1
+PODFILE CHECKSUM: 288ef698802d41b25e3d3f19eb55f76d18b662c8
 
 COCOAPODS: 1.2.0.beta.1

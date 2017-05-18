@@ -8,20 +8,31 @@
 
 #import "JHDataSet.h"
 
-@implementation JHDataSet
+#pragma mark - Apartment Data Set
+@implementation AptDataSet
 
-// Specify default values for properties
++ (NSString *)primaryKey {
+    return @"id";
+}
 
-//+ (NSDictionary *)defaultPropertyValues
-//{
-//    return @{};
-//}
+@end
 
-// Specify properties to ignore (Realm won't persist these)
 
-//+ (NSArray *)ignoredProperties
-//{
-//    return @[];
-//}
+#pragma mark - Address Data Set
+@implementation AddressDataSet
+
++ (NSString *)primaryKey {
+    return @"id";
+}
+
+@end
+
+
+#pragma mark - Marker Data Set
+@implementation MarkerDataSet
+
++ (NSString *)primaryKey {
+    return @"id";
+}
 
 @end

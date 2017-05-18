@@ -1,15 +1,15 @@
 //
-//  ViewController.h
+//  DataCenter.h
 //  JHZigbangTest
 //
 //  Created by Jeheon Choi on 2017. 5. 18..
 //  Copyright © 2017년 JeheonChoi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface ViewController : UIViewController
+@interface DataCenter : NSObject
 
++ (instancetype)sharedInstance;     // sigleton
 
 @end
-

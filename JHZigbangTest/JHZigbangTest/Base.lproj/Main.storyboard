@@ -6,25 +6,98 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GMSMapView">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E90-ws-tim" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Cd-z1-scg">
+                                        <rect key="frame" x="327" y="574.5" width="36" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4Cd-z1-scg" secondAttribute="height" multiplier="1:1" id="wGU-7O-O14"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="zoomUpBtn"/>
+                                        <connections>
+                                            <action selector="zoomUpBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sRi-8a-zph"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ys9-wN-3gN">
+                                        <rect key="frame" x="327" y="611" width="36" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ys9-wN-3gN" secondAttribute="height" multiplier="1:1" id="M9J-J5-Ymj"/>
+                                            <constraint firstAttribute="width" constant="36" id="MgU-P6-zNr"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="zoomDownBtn"/>
+                                        <connections>
+                                            <action selector="zoomDownBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dyr-Vs-4V4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evx-1K-WXd">
+                                        <rect key="frame" x="327" y="518.5" width="36" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Evx-1K-WXd" secondAttribute="height" multiplier="1:1" id="gW7-xl-MbF"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                        <state key="normal" image="myLocationBtn"/>
+                                        <connections>
+                                            <action selector="myLocationBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rqz-nI-YbA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="4Cd-z1-scg" firstAttribute="width" secondItem="ys9-wN-3gN" secondAttribute="width" id="4IZ-n5-zF5"/>
+                                    <constraint firstAttribute="bottom" secondItem="ys9-wN-3gN" secondAttribute="bottom" constant="20" id="7U9-lL-ldv"/>
+                                    <constraint firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" constant="12" id="DwH-1a-wFd"/>
+                                    <constraint firstItem="Evx-1K-WXd" firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" id="WPy-Tw-PMb"/>
+                                    <constraint firstItem="4Cd-z1-scg" firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" id="YQy-E8-rVt"/>
+                                    <constraint firstItem="Evx-1K-WXd" firstAttribute="width" secondItem="ys9-wN-3gN" secondAttribute="width" id="hj0-Eq-0kD"/>
+                                    <constraint firstItem="ys9-wN-3gN" firstAttribute="top" secondItem="4Cd-z1-scg" secondAttribute="bottom" constant="0.5" id="yPq-3p-3Bt"/>
+                                    <constraint firstItem="4Cd-z1-scg" firstAttribute="top" secondItem="Evx-1K-WXd" secondAttribute="bottom" constant="20" id="yTP-st-6AE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="E90-ws-tim" secondAttribute="bottom" id="65H-iQ-3nB"/>
+                            <constraint firstItem="E90-ws-tim" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jht-wL-f7O"/>
+                            <constraint firstAttribute="trailing" secondItem="E90-ws-tim" secondAttribute="trailing" id="juW-V8-QIR"/>
+                            <constraint firstItem="E90-ws-tim" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mlx-Xg-gtc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="E90-ws-tim" id="nEs-rh-w1Q"/>
+                        <outlet property="myLocationBtn" destination="Evx-1K-WXd" id="4LL-hB-krw"/>
+                        <outlet property="zoomDownBtn" destination="ys9-wN-3gN" id="6py-IS-aFf"/>
+                        <outlet property="zoomUpBtn" destination="4Cd-z1-scg" id="EwS-nf-nAV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="myLocationBtn" width="48" height="48"/>
+        <image name="zoomDownBtn" width="48" height="48"/>
+        <image name="zoomUpBtn" width="48" height="48"/>
+    </resources>
 </document>

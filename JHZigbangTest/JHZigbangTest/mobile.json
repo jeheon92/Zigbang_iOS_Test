@@ -1,0 +1,67 @@
+{
+  "filtered": [
+    {
+      "id": 5569,
+      "name": "대우아이빌",
+      "sido": "서울특별시",
+      "gugun": "서초구",
+      "dong": "잠원동",
+      "bunji": "42-13",
+      "lat": 37.51139337574741,
+      "lng": 127.01835497289554,
+      "households": 168,
+      "buildDate": 200107,
+      "score": 4.66667,
+      "brand": "",
+      "image": "https://i6.zigbang.com/v1/apartments/5569/profile.jpg?orientation=landscape",
+      "price": 24000,
+      "floorArea": 39.6,
+      "marker": {
+        "small": {
+          "xxxh": {
+            "base": "https://i6.zigbang.com/v1/marker/apartment.jpg?markerSizeName=xxxh&markerTypeName=Small_Apartment&datas=2.4%EC%96%B5%2C40%E3%8E%A1",
+            "selected": "https://i6.zigbang.com/v1/marker/apartment.jpg?markerSizeName=xxxh&markerTypeName=Small_Apartment_Selected&datas=2.4%EC%96%B5%2C40%E3%8E%A1"
+          }
+        },
+        "large": {
+          "xxxh": {
+            "base": "https://i6.zigbang.com/v1/marker/apartment.jpg?markerSizeName=xxxh&markerTypeName=Apartment&datas=2.4%EC%96%B5%2C40%E3%8E%A1%2C168%EC%84%B8%EB%8C%80%20%2F%202001%EB%85%84&brandName=",
+            "selected": "https://i6.zigbang.com/v1/marker/apartment.jpg?markerSizeName=xxxh&markerTypeName=Apartment_Selected&datas=2.4%EC%96%B5%2C40%E3%8E%A1%2C168%EC%84%B8%EB%8C%80%20%2F%202001%EB%85%84&brandName="
+          }
+        }
+      }
+    },
+    {
+      "id": 8449,
+      "name": "킴스빌리지",
+      "sido": "서울특별시",
+      "gugun": "서초구",
+      "dong": "잠원동",
+      "bunji": "71-12",
+      "lat": 37.510843208978734,
+      "lng": 127.00648775894568,
+      "households": 160,
+      "buildDate": 199612,
+      "score": 3,
+      "brand": "",
+      "image": "https://i6.zigbang.com/v1/apartments/8449/profile.jpg?orientation=landscape",
+      "price": 32000,
+      "floorArea": 34.79,
+      "marker": {
+        "small": {
+          "xxxh": {
+            "base": "https://i6.zigbang.com/v1/marker/apartment.jpg?markerSizeName=xxxh&markerTypeName=Small_Apartment&datas=3.2%EC%96%B5%2C35%E3%8E%A1",
+            "selected": "https://i6.zigbang.com/v1/marker/apartment.jpg?markerSizeName=xxxh&markerTypeName=Small_Apartment_Selected&datas=3.2%EC%96%B5%2C35%E3%8E%A1"
+          }
+        },
+        "large": {
+          "xxxh": {
+            "base": "https://i6.zigbang.com/v1/marker/apartment.jpg?markerSizeName=xxxh&markerTypeName=Apartment&datas=3.2%EC%96%B5%2C35%E3%8E%A1%2C160%EC%84%B8%EB%8C%80%20%2F%201996%EB%85%84&brandName=",
+            "selected": "https://i6.zigbang.com/v1/marker/apartment.jpg?markerSizeName=xxxh&markerTypeName=Apartment_Selected&datas=3.2%EC%96%B5%2C35%E3%8E%A1%2C160%EC%84%B8%EB%8C%80%20%2F%201996%EB%85%84&brandName="
+          }
+        }
+      }
+    }
+  ],
+  "unfiltered": []
+}
