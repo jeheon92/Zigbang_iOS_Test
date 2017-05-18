@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		2944291B91E34A3B9FC55711 /* libPods-JHZigbangTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBFD0A5895B361EECBD3C5 /* libPods-JHZigbangTest.a */; };
 		3F5876D51ECD664A0066A7D6 /* mobile.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F5876D41ECD664A0066A7D6 /* mobile.json */; };
-		3FC95BBA1ECD61C900758A3F /* JHDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC95BB91ECD61C900758A3F /* JHDataSet.m */; };
+		3FAC92AC1ECE0245005F3BA0 /* FakeNetworkModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC92AB1ECE0245005F3BA0 /* FakeNetworkModule.m */; };
+		3FC95BBA1ECD61C900758A3F /* DataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC95BB91ECD61C900758A3F /* DataSet.m */; };
 		3FDFEECA1ECD819300CFC1EF /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEEC91ECD819300CFC1EF /* DataCenter.m */; };
-		3FDFEECD1ECD83CC00CFC1EF /* FakeServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEECC1ECD83CC00CFC1EF /* FakeServer.m */; };
 		3FFE85A11ECD46BA002A54EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE85A01ECD46BA002A54EB /* main.m */; };
 		3FFE85A41ECD46BA002A54EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE85A31ECD46BA002A54EB /* AppDelegate.m */; };
 		3FFE85A71ECD46BA002A54EB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE85A61ECD46BA002A54EB /* MainViewController.m */; };
@@ -23,12 +23,12 @@
 /* Begin PBXFileReference section */
 		3F5876D41ECD664A0066A7D6 /* mobile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mobile.json; sourceTree = "<group>"; };
 		3FA80C3E1ECD49DF00A0935E /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		3FC95BB81ECD61C900758A3F /* JHDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHDataSet.h; sourceTree = "<group>"; };
-		3FC95BB91ECD61C900758A3F /* JHDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHDataSet.m; sourceTree = "<group>"; };
+		3FAC92AA1ECE0245005F3BA0 /* FakeNetworkModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeNetworkModule.h; sourceTree = "<group>"; };
+		3FAC92AB1ECE0245005F3BA0 /* FakeNetworkModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeNetworkModule.m; sourceTree = "<group>"; };
+		3FC95BB81ECD61C900758A3F /* DataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSet.h; sourceTree = "<group>"; };
+		3FC95BB91ECD61C900758A3F /* DataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSet.m; sourceTree = "<group>"; };
 		3FDFEEC81ECD819300CFC1EF /* DataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCenter.h; sourceTree = "<group>"; };
 		3FDFEEC91ECD819300CFC1EF /* DataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCenter.m; sourceTree = "<group>"; };
-		3FDFEECB1ECD83CC00CFC1EF /* FakeServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeServer.h; sourceTree = "<group>"; };
-		3FDFEECC1ECD83CC00CFC1EF /* FakeServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeServer.m; sourceTree = "<group>"; };
 		3FFE859C1ECD46BA002A54EB /* JHZigbangTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHZigbangTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFE85A01ECD46BA002A54EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFE85A21ECD46BA002A54EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +56,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FAC92A91ECE01EE005F3BA0 /* FakeNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				3FAC92AA1ECE0245005F3BA0 /* FakeNetworkModule.h */,
+				3FAC92AB1ECE0245005F3BA0 /* FakeNetworkModule.m */,
+				3F5876D41ECD664A0066A7D6 /* mobile.json */,
+			);
+			name = FakeNetwork;
+			sourceTree = "<group>";
+		};
 		3FC95BAF1ECD4C4400758A3F /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,8 +80,8 @@
 			children = (
 				3FDFEEC81ECD819300CFC1EF /* DataCenter.h */,
 				3FDFEEC91ECD819300CFC1EF /* DataCenter.m */,
-				3FC95BB81ECD61C900758A3F /* JHDataSet.h */,
-				3FC95BB91ECD61C900758A3F /* JHDataSet.m */,
+				3FC95BB81ECD61C900758A3F /* DataSet.h */,
+				3FC95BB91ECD61C900758A3F /* DataSet.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -84,16 +94,6 @@
 				3FFE85A81ECD46BA002A54EB /* Main.storyboard */,
 			);
 			name = "View & Controller";
-			sourceTree = "<group>";
-		};
-		3FDFEECE1ECD83D200CFC1EF /* FakeServer */ = {
-			isa = PBXGroup;
-			children = (
-				3FDFEECB1ECD83CC00CFC1EF /* FakeServer.h */,
-				3FDFEECC1ECD83CC00CFC1EF /* FakeServer.m */,
-				3F5876D41ECD664A0066A7D6 /* mobile.json */,
-			);
-			name = FakeServer;
 			sourceTree = "<group>";
 		};
 		3FFE85931ECD46BA002A54EB = {
@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				3FC95BAF1ECD4C4400758A3F /* AppDelegate */,
-				3FDFEECE1ECD83D200CFC1EF /* FakeServer */,
+				3FAC92A91ECE01EE005F3BA0 /* FakeNetwork */,
 				3FC95BB01ECD4C5300758A3F /* Model */,
 				3FC95BB11ECD4C6D00758A3F /* View & Controller */,
 				3FFE859F1ECD46BA002A54EB /* Supporting Files */,
@@ -282,8 +282,8 @@
 				3FFE85A71ECD46BA002A54EB /* MainViewController.m in Sources */,
 				3FDFEECA1ECD819300CFC1EF /* DataCenter.m in Sources */,
 				3FFE85A41ECD46BA002A54EB /* AppDelegate.m in Sources */,
-				3FDFEECD1ECD83CC00CFC1EF /* FakeServer.m in Sources */,
-				3FC95BBA1ECD61C900758A3F /* JHDataSet.m in Sources */,
+				3FC95BBA1ECD61C900758A3F /* DataSet.m in Sources */,
+				3FAC92AC1ECE0245005F3BA0 /* FakeNetworkModule.m in Sources */,
 				3FFE85A11ECD46BA002A54EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

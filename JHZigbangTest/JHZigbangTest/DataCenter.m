@@ -10,6 +10,7 @@
 
 @implementation DataCenter
 
+#pragma mark - DataCenter Sigleton Object
 + (instancetype)sharedInstance {
     
     static DataCenter *data;
@@ -22,4 +23,32 @@
     return data;
 }
 
+
+
+
+#pragma mark - Add or Update Apt Data
+- (RLMArray<AptDataSet *> *)setAptDataWithAptDicArr:(NSArray *)aptDicArr {
+    
+    RLMArray *aptArr = [[RLMArray alloc] initWithObjectClassName:@"AptDataSet"];
+    
+    // 기존 캐싱되어있던 데이터 Update하는 경우도 있어, 통째로 realm transaction에서 불림
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
+        for (NSDictionary *aptDic in aptDicArr) {
+
+            AptDataSet *aptData = [AptDataSet makeAptDataWithDic:aptDic];
+            [realm addOrUpdateObject:aptData];     // Realm DB에 Add or Update
+
+            [aptArr addObject:aptData];
+        }
+    }];
+    
+    NSLog(@"Add or Update: %@", aptArr);
+    
+    return aptArr;
+}
+
+
+
 @end
+

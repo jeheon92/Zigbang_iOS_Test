@@ -8,7 +8,7 @@
 
 #import <Realm/Realm.h>
 
-@class AptDataSet;
+@class AptDataSet;      // Apt에 Address, Marker 포함되어 있음
 @class AddressDataSet;
 @class MarkerDataSet;
 
@@ -19,17 +19,19 @@
 @property NSInteger id;
 
 @property NSString *name;
-@property AddressDataSet *address;
-
 @property CGFloat score;
 @property NSString *image;
 @property NSString *brand;
+@property NSInteger households;
 @property NSString *buildDate;
-
 @property NSInteger price;
 @property CGFloat floorArea;
 
+@property AddressDataSet *address;
 @property MarkerDataSet *marker;
+
+
++ (AptDataSet *)makeAptDataWithDic:(NSDictionary *)aptDic;
 
 @end
 

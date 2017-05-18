@@ -10,6 +10,11 @@
 
 @interface DataCenter : NSObject
 
+#pragma mark - DataCenter Sigleton Object
 + (instancetype)sharedInstance;     // sigleton
+
+
+#pragma mark - Save & Update Apt Data
+- (RLMArray<AptDataSet *> *)setAptDataWithAptDicArr:(NSArray *)aptDicArr;
 
 @end

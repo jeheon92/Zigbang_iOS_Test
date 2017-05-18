@@ -7,13 +7,16 @@
 //
 
 #import "MainViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
-@interface MainViewController ()
+@interface MainViewController () <GMSMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *myLocationBtn;
 @property (weak, nonatomic) IBOutlet UIButton *zoomUpBtn;
 @property (weak, nonatomic) IBOutlet UIButton *zoomDownBtn;
+
+@property (nonatomic) RLMArray<AptDataSet *> *aptList;
 
 @end
 
@@ -23,7 +26,6 @@
     [super viewDidLoad];
 
     [self initWithMapView];
-    
 }
 
 
@@ -57,6 +59,8 @@
 
 
 
+
+
 #pragma mark - MapView Btns Action Methods
 
 - (IBAction)myLocationBtnAction:(id)sender {
@@ -86,6 +90,25 @@
     [self.mapView animateToCameraPosition:camera];
 
 }
+
+
+
+
+#pragma mark - GMSMapViewDelegate
+
+- (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
+    NSLog(@"idleAtCameraPosition lat: %lf, lng: %lf", position.target.latitude, position.target.longitude);
+    
+    GMSVisibleRegion visibleRegion = [self.mapView.projection visibleRegion];
+    
+    self.aptList = [[FakeNetworkModule networkManager] getAptInfosWithFarRightLat:visibleRegion.farRight.latitude
+                                                                  withFarRightLng:visibleRegion.farRight.longitude
+                                                                  withNearLeftLat:visibleRegion.nearLeft.latitude
+                                                                  withNearLeftLng:visibleRegion.nearLeft.longitude];
+    
+    
+}
+
 
 
 @end
