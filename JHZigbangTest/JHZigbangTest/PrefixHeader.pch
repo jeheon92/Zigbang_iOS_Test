@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  JHZigbangTest
+//
+//  Created by Jeheon Choi on 2017. 5. 18..
+//  Copyright © 2017년 JeheonChoi. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+@import GoogleMaps;
+#define GOOGLE_API_KEY @"AIzaSyC8MJpwlcqAD4oHWQuTDiXWlKcMbE1okD8"
+
+#endif /* PrefixHeader_pch */
