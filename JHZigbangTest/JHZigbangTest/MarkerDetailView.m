@@ -31,8 +31,7 @@
 }
 
 
-- (void)showMarkerDetailView:(AptDataSet *)aptData
-         withCompletionBlock:(void (^)())completionBlock {
+- (void)showMarkerDetailView:(AptDataSet *)aptData {
     
     [SVProgressHUD show];       // show SVProgressHUD
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:aptData.image]
@@ -40,7 +39,6 @@
                                options:SDWebImageHighPriority
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                  [SVProgressHUD dismiss];       // dismiss SVProgressHUD                                 
-                                 completionBlock();
                              }];
     
     self.nameLabel.text = aptData.name;

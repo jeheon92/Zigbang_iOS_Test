@@ -10,7 +10,6 @@
 
 @interface MarkerDetailView : UIView
 
-- (void)showMarkerDetailView:(AptDataSet *)aptData
-         withCompletionBlock:(void (^)())completionBlock;
+- (void)showMarkerDetailView:(AptDataSet *)aptData;
 
 @end

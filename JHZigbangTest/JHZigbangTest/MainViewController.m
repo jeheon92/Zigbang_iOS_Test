@@ -21,6 +21,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *zoomDownBtn;
 @property (weak, nonatomic) IBOutlet UIView *notiZoomUpMessageView;
 
+@property (weak, nonatomic) MarkerDetailView *markerDetailView;
+@property (nonatomic) BOOL movingToMarkerPosition;      // 선택 마커로 이동 중일 때, YES
+@property (nonatomic) GMSMarker *selectedMarker;
+
 @end
 
 @implementation MainViewController
@@ -29,6 +33,12 @@
     [super viewDidLoad];
 
     [self initWithMapView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.markerDetailView.frame = CGRectMake(0, self.mapView.frame.size.height-MARKER_DETAIL_VIEW_HEIGHT, self.mapView.frame.size.width, MARKER_DETAIL_VIEW_HEIGHT);        // markerDetailView frame 확정
 }
 
 
@@ -45,6 +55,14 @@
         btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     }
     
+    // MarkerDetailView
+    MarkerDetailView *markerDetailView = [[MarkerDetailView alloc] init];       // + loadNib, markerDetailView 계속해서 재사용
+    [self.mapView addSubview:markerDetailView];
+    self.markerDetailView = markerDetailView;
+    
+    self.markerDetailView.hidden = YES;     // default로 Hidden
+    
+    
     // 내 위치를 중심으로 Map 띄우기
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
@@ -59,7 +77,6 @@
         });
     });
 }
-
 
 
 #pragma mark - MapView Btns Action Methods
@@ -96,22 +113,15 @@
 
 
 #pragma mark - GMSMapViewDelegate
-- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
-    NSLog(@"didChangeCameraPosition");
-    
-    if (mapView.selectedMarker != nil) {
-        mapView.selectedMarker = nil;       // selectedMarker nil로 세팅 & didCloseInfoWindowOfMarker Delegate Method 불림
-    }
-    
-    
-}
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
     NSLog(@"idleAtCameraPosition");
     
+    self.movingToMarkerPosition = NO;
+    
     // 지도 마커 초기화
     [mapView clear];
-
+    
     if (position.zoom >= SMALL_MARKER_ZOOM) {
         self.notiZoomUpMessageView.hidden = YES;
         GMSVisibleRegion visibleRegion = [self.mapView.projection visibleRegion];
@@ -120,54 +130,40 @@
                                                        withNearLeftLat:visibleRegion.nearLeft.latitude
                                                        withNearLeftLng:visibleRegion.nearLeft.longitude
                                                    withCompletionBlock:^(RLMArray<AptDataSet *> *aptList) {
-
+                                                       
                                                        [self setMarkers:aptList];    // Set Markers
                                                    }];
     } else {
         self.notiZoomUpMessageView.hidden = NO;
     }
-    
 }
 
+
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+    NSLog(@"didChangeCameraPosition");
+    
+    if (self.movingToMarkerPosition == NO) {        
+        self.markerDetailView.hidden = YES;
+        self.selectedMarker = nil;       // selectedMarker nil로 세팅
+    }
+}
 
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     NSLog(@"didTapMarker");
-//    [mapView animateToLocation:marker.position];
+    [mapView animateToLocation:marker.position];
+    self.movingToMarkerPosition = YES;
     
     MarkerDataSet *markerData = [[DataCenter sharedInstance] findMarkerDataWithPK:marker.iconView.tag];
     [self setMarkerImage:marker withMarkerData:markerData isSelected:YES];      // 마커 이미지 Selected로 세팅
- 
-    mapView.selectedMarker = marker;    // 선택 마커 세팅
-    
-    return YES;
-}
-
-- (nullable UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
-    NSLog(@"markerInfoWindow");
-
-    // 그림자, 선택 마커 중심으로 이동 처리 필요
-    
-    // MarkerDetailView
-    MarkerDetailView *markerDetailView = [[MarkerDetailView alloc] init];       // + loadNib
-    markerDetailView.frame = CGRectMake(0, 0, self.mapView.frame.size.width, MARKER_DETAIL_VIEW_HEIGHT);
     
     AptDataSet *aptData = [[DataCenter sharedInstance] findAptDataWithPK:marker.iconView.tag];
-    
-    marker.tracksInfoWindowChanges = YES;           // image 받아온 후, 다시 렌더링할 수 있도록 세팅
-    [markerDetailView showMarkerDetailView:aptData withCompletionBlock:^{
-        marker.tracksInfoWindowChanges = NO;        // image 받아 온 후, 다시 NO로 세팅
-    }];    // markerDetailView 정보 세팅
-    
-    
-    return markerDetailView;
-}
+    [self.markerDetailView showMarkerDetailView:aptData];    // markerDetailView 정보 세팅
 
-- (void)mapView:(GMSMapView *)mapView didCloseInfoWindowOfMarker:(GMSMarker *)marker {
-    NSLog(@"didCloseInfoWindowOfMarker");
+    self.markerDetailView.hidden = NO;
+    self.selectedMarker = marker;       // 선택 마커 프로퍼티에 셋
     
-    MarkerDataSet *markerData = [[DataCenter sharedInstance] findMarkerDataWithPK:mapView.selectedMarker.iconView.tag];
-    [self setMarkerImage:mapView.selectedMarker withMarkerData:markerData isSelected:NO];   // 선택되어있던 마커 선택해제
+    return YES;
 }
 
 
@@ -182,7 +178,13 @@
         
         marker.iconView = [[UIImageView alloc] init];       // UIImageView를 만들어 넣음
         marker.iconView.tag = aptData.id;                   // pk값 iconView.tag에 저장
-        [self setMarkerImage:marker withMarkerData:aptData.marker isSelected:NO];   // 마커 이미지 세팅
+
+        if (self.selectedMarker.iconView.tag == marker.iconView.tag) {      // 선택마커 있는지 확인
+            [self setMarkerImage:marker withMarkerData:aptData.marker isSelected:YES];  // 선택 마커 이미지 세팅
+            self.selectedMarker = nil;      // 선택 마커에서 해제
+        } else {
+            [self setMarkerImage:marker withMarkerData:aptData.marker isSelected:NO];   // 기본 마커 이미지 세팅
+        }
         
         marker.map = self.mapView;
     }
