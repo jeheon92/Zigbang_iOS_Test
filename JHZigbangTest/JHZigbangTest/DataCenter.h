@@ -17,4 +17,10 @@
 #pragma mark - Save & Update Apt Data
 - (RLMArray<AptDataSet *> *)setAptDataWithAptDicArr:(NSArray *)aptDicArr;
 
+
+#pragma mark - Find Data With PK (id)
+- (AptDataSet *)findAptDataWithPK:(NSInteger)pk;
+- (AddressDataSet *)findAddressDataWithPK:(NSInteger)pk;
+- (MarkerDataSet *)findMarkerDataWithPK:(NSInteger)pk;
+
 @end

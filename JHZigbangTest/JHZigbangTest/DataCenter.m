@@ -40,11 +40,26 @@
 
         [realm addOrUpdateObjectsFromArray:aptArr];     // Realm DB에 Add or Update
     }];
-    
-    NSLog(@"Add or Update: %@", aptArr);
+//    NSLog(@"Add or Update: %@", aptArr);
     
     return aptArr;
 }
+
+
+#pragma mark - Find Data With PK (id)
+
+- (AptDataSet *)findAptDataWithPK:(NSInteger)pk {
+    return [AptDataSet objectsWhere:[NSString stringWithFormat:@"id==%ld", pk]][0];
+}
+
+- (AddressDataSet *)findAddressDataWithPK:(NSInteger)pk {
+    return [AddressDataSet objectsWhere:[NSString stringWithFormat:@"id==%ld", pk]][0];
+}
+
+- (MarkerDataSet *)findMarkerDataWithPK:(NSInteger)pk {
+    return [MarkerDataSet objectsWhere:[NSString stringWithFormat:@"id==%ld", pk]][0];
+}
+
 
 
 

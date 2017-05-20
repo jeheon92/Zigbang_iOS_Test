@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2944291B91E34A3B9FC55711 /* libPods-JHZigbangTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBFD0A5895B361EECBD3C5 /* libPods-JHZigbangTest.a */; };
 		3F5876D51ECD664A0066A7D6 /* mobile.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F5876D41ECD664A0066A7D6 /* mobile.json */; };
+		3FA10B421ED000DD0089BBB4 /* MarkerDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA10B411ED000DD0089BBB4 /* MarkerDetailView.m */; };
+		3FA10B441ED000F60089BBB4 /* MarkerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FA10B431ED000F60089BBB4 /* MarkerDetailView.xib */; };
 		3FAC92AC1ECE0245005F3BA0 /* FakeNetworkModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC92AB1ECE0245005F3BA0 /* FakeNetworkModule.m */; };
 		3FC95BBA1ECD61C900758A3F /* DataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC95BB91ECD61C900758A3F /* DataSet.m */; };
 		3FDFEECA1ECD819300CFC1EF /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEEC91ECD819300CFC1EF /* DataCenter.m */; };
@@ -22,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		3F5876D41ECD664A0066A7D6 /* mobile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mobile.json; sourceTree = "<group>"; };
+		3FA10B401ED000DD0089BBB4 /* MarkerDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerDetailView.h; sourceTree = "<group>"; };
+		3FA10B411ED000DD0089BBB4 /* MarkerDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerDetailView.m; sourceTree = "<group>"; };
+		3FA10B431ED000F60089BBB4 /* MarkerDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerDetailView.xib; sourceTree = "<group>"; };
 		3FA80C3E1ECD49DF00A0935E /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3FAC92AA1ECE0245005F3BA0 /* FakeNetworkModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeNetworkModule.h; sourceTree = "<group>"; };
 		3FAC92AB1ECE0245005F3BA0 /* FakeNetworkModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeNetworkModule.m; sourceTree = "<group>"; };
@@ -56,6 +61,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FA10B451ED001010089BBB4 /* MarkerDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				3FA10B401ED000DD0089BBB4 /* MarkerDetailView.h */,
+				3FA10B411ED000DD0089BBB4 /* MarkerDetailView.m */,
+				3FA10B431ED000F60089BBB4 /* MarkerDetailView.xib */,
+			);
+			name = MarkerDetailView;
+			sourceTree = "<group>";
+		};
 		3FAC92A91ECE01EE005F3BA0 /* FakeNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +106,7 @@
 			children = (
 				3FFE85A51ECD46BA002A54EB /* MainViewController.h */,
 				3FFE85A61ECD46BA002A54EB /* MainViewController.m */,
+				3FA10B451ED001010089BBB4 /* MarkerDetailView */,
 				3FFE85A81ECD46BA002A54EB /* Main.storyboard */,
 			);
 			name = "View & Controller";
@@ -219,6 +235,7 @@
 			files = (
 				3FFE85AF1ECD46BA002A54EB /* LaunchScreen.storyboard in Resources */,
 				3FFE85AC1ECD46BA002A54EB /* Assets.xcassets in Resources */,
+				3FA10B441ED000F60089BBB4 /* MarkerDetailView.xib in Resources */,
 				3FFE85AA1ECD46BA002A54EB /* Main.storyboard in Resources */,
 				3F5876D51ECD664A0066A7D6 /* mobile.json in Resources */,
 			);
@@ -282,6 +299,7 @@
 				3FFE85A71ECD46BA002A54EB /* MainViewController.m in Sources */,
 				3FDFEECA1ECD819300CFC1EF /* DataCenter.m in Sources */,
 				3FFE85A41ECD46BA002A54EB /* AppDelegate.m in Sources */,
+				3FA10B421ED000DD0089BBB4 /* MarkerDetailView.m in Sources */,
 				3FC95BBA1ECD61C900758A3F /* DataSet.m in Sources */,
 				3FAC92AC1ECE0245005F3BA0 /* FakeNetworkModule.m in Sources */,
 				3FFE85A11ECD46BA002A54EB /* main.m in Sources */,

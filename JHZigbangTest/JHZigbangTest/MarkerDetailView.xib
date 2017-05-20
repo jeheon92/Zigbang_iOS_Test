@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MarkerDetailView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aptPlaceholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="wd9-Tl-wfH">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="nVH-Tz-ZY9">
+                    <rect key="frame" x="0.0" y="112.5" width="375" height="82.5"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EUn-CN-31f">
+                    <rect key="frame" x="10" y="150.5" width="187" height="34.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="래미안신반포팰리스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnu-U1-YzP">
+                            <rect key="frame" x="0.0" y="0.0" width="187" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서초구 잠원동 ・2016년 준공 ・843세대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6v-wZ-RJj">
+                            <rect key="frame" x="0.0" y="21" width="187" height="13.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Web-xf-Aly">
+                    <rect key="frame" x="0.0" y="195" width="375" height="65"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="fku-CM-q4N">
+                            <rect key="frame" x="15" y="11.5" width="118.5" height="42"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.8억 / 111㎡" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bor-qk-sjp">
+                                    <rect key="frame" x="0.0" y="0.0" width="118.5" height="23"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3856만 / 3.3 ㎡" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGM-a2-Vgo">
+                                    <rect key="frame" x="0.0" y="26" width="118.5" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="fku-CM-q4N" firstAttribute="centerY" secondItem="Web-xf-Aly" secondAttribute="centerY" id="8ag-w2-Cxa"/>
+                        <constraint firstItem="fku-CM-q4N" firstAttribute="leading" secondItem="Web-xf-Aly" secondAttribute="leading" constant="15" id="AB9-u5-doV"/>
+                        <constraint firstAttribute="height" constant="65" id="nOc-yO-ysL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Web-xf-Aly" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8Ny-Fl-5Rc"/>
+                <constraint firstItem="EUn-CN-31f" firstAttribute="bottom" secondItem="wd9-Tl-wfH" secondAttribute="bottom" constant="-10" id="Efv-gS-2gQ"/>
+                <constraint firstItem="wd9-Tl-wfH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MHg-zw-gSN"/>
+                <constraint firstItem="nVH-Tz-ZY9" firstAttribute="height" secondItem="wd9-Tl-wfH" secondAttribute="height" multiplier="0.5" constant="-15" id="THn-Xe-SA6"/>
+                <constraint firstItem="EUn-CN-31f" firstAttribute="leading" secondItem="wd9-Tl-wfH" secondAttribute="leading" constant="10" id="XEu-sB-rC3"/>
+                <constraint firstAttribute="bottom" secondItem="Web-xf-Aly" secondAttribute="bottom" id="ZSw-GH-GmR"/>
+                <constraint firstItem="Web-xf-Aly" firstAttribute="top" secondItem="wd9-Tl-wfH" secondAttribute="bottom" id="btP-NF-aVe"/>
+                <constraint firstItem="nVH-Tz-ZY9" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="kIl-6U-29D"/>
+                <constraint firstItem="nVH-Tz-ZY9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lOD-BW-DOB"/>
+                <constraint firstItem="wd9-Tl-wfH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mgA-tp-pYo"/>
+                <constraint firstItem="wd9-Tl-wfH" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="tU8-0H-vcQ"/>
+                <constraint firstItem="nVH-Tz-ZY9" firstAttribute="bottom" secondItem="wd9-Tl-wfH" secondAttribute="bottom" id="v98-d7-7Fy"/>
+                <constraint firstItem="Web-xf-Aly" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="yOW-zx-W1M"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="aptInfosLabel" destination="z6v-wZ-RJj" id="EiH-OM-phF"/>
+                <outlet property="imageView" destination="wd9-Tl-wfH" id="Ksk-JP-Bdp"/>
+                <outlet property="nameLabel" destination="Nnu-U1-YzP" id="1Fq-fp-N0h"/>
+                <outlet property="priceAndFloorAreaLabel" destination="Bor-qk-sjp" id="khs-HZ-Z0S"/>
+                <outlet property="pricePerPyeongLabel" destination="MGM-a2-Vgo" id="bJP-GZ-RLX"/>
+            </connections>
+            <point key="canvasLocation" x="32.5" y="73"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="aptPlaceholderImg" width="377" height="202"/>
+        <image name="shadow" width="1440" height="756"/>
+    </resources>
+</document>
