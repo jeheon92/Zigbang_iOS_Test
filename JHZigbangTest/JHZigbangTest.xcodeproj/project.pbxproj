@@ -64,9 +64,9 @@
 		3FA10B451ED001010089BBB4 /* MarkerDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				3FA10B431ED000F60089BBB4 /* MarkerDetailView.xib */,
 				3FA10B401ED000DD0089BBB4 /* MarkerDetailView.h */,
 				3FA10B411ED000DD0089BBB4 /* MarkerDetailView.m */,
-				3FA10B431ED000F60089BBB4 /* MarkerDetailView.xib */,
 			);
 			name = MarkerDetailView;
 			sourceTree = "<group>";
@@ -104,10 +104,10 @@
 		3FC95BB11ECD4C6D00758A3F /* View & Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3FFE85A81ECD46BA002A54EB /* Main.storyboard */,
 				3FFE85A51ECD46BA002A54EB /* MainViewController.h */,
 				3FFE85A61ECD46BA002A54EB /* MainViewController.m */,
 				3FA10B451ED001010089BBB4 /* MarkerDetailView */,
-				3FFE85A81ECD46BA002A54EB /* Main.storyboard */,
 			);
 			name = "View & Controller";
 			sourceTree = "<group>";

@@ -49,12 +49,14 @@
 
 
 #pragma mark - Fake Network Methods
-- (RLMArray<AptDataSet *> *)getAptInfosWithFarRightLat:(CGFloat)frLat      // FarRight : Top Right, corner of the mapView camera
-                                       withFarRightLng:(CGFloat)frLng
-                                       withNearLeftLat:(CGFloat)nlLat      // NearLeft : Bottom Left, corner of the mapView camera
-                                       withNearLeftLng:(CGFloat)nlLng {
+- (void)getAptInfosWithFarRightLat:(CGFloat)frLat      // FarRight : Top Right, corner of the mapView camera
+                   withFarRightLng:(CGFloat)frLng
+                   withNearLeftLat:(CGFloat)nlLat      // NearLeft : Bottom Left, corner of the mapView camera
+                   withNearLeftLng:(CGFloat)nlLng
+               withCompletionBlock:(void (^)(RLMArray<AptDataSet *> *aptList))completionBlock {
     
 
+    // 서버 통신과정 생략
     // 원래는 서버에서 처리할 부분 ----------------------------- //
     
     // 위도는 보통 frLat > nlLat (예외 상황 180 ~ -180, 태평양..)
@@ -73,8 +75,10 @@
     }
     // -------------------------------------------------- //
     
-    return [[DataCenter sharedInstance] setAptDataWithAptDicArr:aptDicArr];     // 해당하는 데이터 업데이트 한 후, 지도있는 컨트롤러로 반환
-
+    RLMArray<AptDataSet *> *aptList = [[DataCenter sharedInstance] setAptDataWithAptDicArr:aptDicArr];  // 데이터 Add or Update
+    
+    completionBlock(aptList);  // 지도있는 컨트롤러로 반환
+    
 }
 
 

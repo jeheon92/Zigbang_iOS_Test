@@ -31,13 +31,16 @@
 }
 
 
-- (void)showMarkerDetailView:(AptDataSet *)aptData {
+- (void)showMarkerDetailView:(AptDataSet *)aptData
+         withCompletionBlock:(void (^)())completionBlock {
     
     [SVProgressHUD show];       // show SVProgressHUD
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:aptData.image]
                       placeholderImage:[UIImage imageNamed:@"aptPlaceholderImg.png"]
+                               options:SDWebImageHighPriority
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                 [SVProgressHUD dismiss];       // dismiss SVProgressHUD
+                                 [SVProgressHUD dismiss];       // dismiss SVProgressHUD                                 
+                                 completionBlock();
                              }];
     
     self.nameLabel.text = aptData.name;
@@ -46,7 +49,6 @@
     self.priceAndFloorAreaLabel.text = [NSString stringWithFormat:@"%.1lf억 / %.0lf㎡", aptData.price/1000.0f+0.05f, aptData.floorArea+0.5f];   // 반올림 적용
     self.pricePerPyeongLabel.text = [NSString stringWithFormat:@"%.0lf만 / 3.3㎡", aptData.price*3.3f/aptData.floorArea + 0.5f];      // 반올림 적용
     
-    self.hidden = NO;
 }
 
 

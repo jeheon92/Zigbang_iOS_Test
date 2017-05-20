@@ -62,13 +62,33 @@
                                             <action selector="myLocationBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rqz-nI-YbA"/>
                                         </connections>
                                     </button>
+                                    <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEq-eq-axT">
+                                        <rect key="frame" x="41.5" y="611" width="244.5" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아파트를 보기 위해 지도를 더 확대해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2R-q0-Mk8">
+                                                <rect key="frame" x="9.5" y="10" width="224.5" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="c2R-q0-Mk8" firstAttribute="centerY" secondItem="xEq-eq-axT" secondAttribute="centerY" id="EHe-ST-xc5"/>
+                                            <constraint firstAttribute="width" secondItem="c2R-q0-Mk8" secondAttribute="width" constant="20" id="vap-uI-NHb"/>
+                                            <constraint firstItem="c2R-q0-Mk8" firstAttribute="centerX" secondItem="xEq-eq-axT" secondAttribute="centerX" id="yHC-U4-H5e"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="xEq-eq-axT" firstAttribute="centerX" secondItem="E90-ws-tim" secondAttribute="centerX" constant="-24" id="1no-fM-T5T"/>
                                     <constraint firstItem="4Cd-z1-scg" firstAttribute="width" secondItem="ys9-wN-3gN" secondAttribute="width" id="4IZ-n5-zF5"/>
                                     <constraint firstAttribute="bottom" secondItem="ys9-wN-3gN" secondAttribute="bottom" constant="20" id="7U9-lL-ldv"/>
                                     <constraint firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" constant="12" id="DwH-1a-wFd"/>
+                                    <constraint firstItem="xEq-eq-axT" firstAttribute="centerY" secondItem="ys9-wN-3gN" secondAttribute="centerY" id="H6n-cS-QRT"/>
                                     <constraint firstItem="Evx-1K-WXd" firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" id="WPy-Tw-PMb"/>
+                                    <constraint firstItem="xEq-eq-axT" firstAttribute="height" secondItem="ys9-wN-3gN" secondAttribute="height" id="WhD-Hc-oxh"/>
                                     <constraint firstItem="4Cd-z1-scg" firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" id="YQy-E8-rVt"/>
                                     <constraint firstItem="Evx-1K-WXd" firstAttribute="width" secondItem="ys9-wN-3gN" secondAttribute="width" id="hj0-Eq-0kD"/>
                                     <constraint firstItem="ys9-wN-3gN" firstAttribute="top" secondItem="4Cd-z1-scg" secondAttribute="bottom" constant="0.5" id="yPq-3p-3Bt"/>
@@ -90,12 +110,14 @@
                     <connections>
                         <outlet property="mapView" destination="E90-ws-tim" id="nEs-rh-w1Q"/>
                         <outlet property="myLocationBtn" destination="Evx-1K-WXd" id="4LL-hB-krw"/>
+                        <outlet property="notiZoomUpMessageView" destination="xEq-eq-axT" id="z2h-am-OCE"/>
                         <outlet property="zoomDownBtn" destination="ys9-wN-3gN" id="6py-IS-aFf"/>
                         <outlet property="zoomUpBtn" destination="4Cd-z1-scg" id="EwS-nf-nAV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="123.68815592203899"/>
         </scene>
     </scenes>
     <resources>

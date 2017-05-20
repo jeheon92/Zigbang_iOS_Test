@@ -19,10 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *myLocationBtn;
 @property (weak, nonatomic) IBOutlet UIButton *zoomUpBtn;
 @property (weak, nonatomic) IBOutlet UIButton *zoomDownBtn;
-
-@property (weak, nonatomic) MarkerDetailView *markerDetailView;
-
-@property (nonatomic) RLMArray<AptDataSet *> *aptList;
+@property (weak, nonatomic) IBOutlet UIView *notiZoomUpMessageView;
 
 @end
 
@@ -39,6 +36,7 @@
     
     self.mapView.myLocationEnabled = YES;           // myLocation Enabled
     self.mapView.settings.rotateGestures = NO;      // rotate gesture Disabled
+    [self.mapView bringSubviewToFront:self.notiZoomUpMessageView];
     
     // MapView Btns
     for (UIButton *btn in @[self.myLocationBtn, self.zoomUpBtn, self.zoomDownBtn]) {
@@ -99,64 +97,55 @@
 
 #pragma mark - GMSMapViewDelegate
 - (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+    NSLog(@"didChangeCameraPosition");
     
     if (mapView.selectedMarker != nil) {
-        MarkerDataSet *markerData = [[DataCenter sharedInstance] findMarkerDataWithPK:mapView.selectedMarker.iconView.tag];
-        [self setMarkerImage:mapView.selectedMarker withMarkerData:markerData isSelected:NO];   // 이전 선택했던 마커 선택해제
-
-        mapView.selectedMarker = nil;       // 선택마커 없음
+        mapView.selectedMarker = nil;       // selectedMarker nil로 세팅 & didCloseInfoWindowOfMarker Delegate Method 불림
     }
+    
+    
 }
 
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position {
-    NSLog(@"idleAtCameraPosition lat: %lf, lng: %lf", position.target.latitude, position.target.longitude);
+    NSLog(@"idleAtCameraPosition");
     
     // 지도 마커 초기화
-    self.aptList = nil;
-    [self.mapView clear];
+    [mapView clear];
 
     if (position.zoom >= SMALL_MARKER_ZOOM) {
+        self.notiZoomUpMessageView.hidden = YES;
         GMSVisibleRegion visibleRegion = [self.mapView.projection visibleRegion];
-        self.aptList = [[FakeNetworkModule networkManager] getAptInfosWithFarRightLat:visibleRegion.farRight.latitude
-                                                                      withFarRightLng:visibleRegion.farRight.longitude
-                                                                      withNearLeftLat:visibleRegion.nearLeft.latitude
-                                                                      withNearLeftLng:visibleRegion.nearLeft.longitude];
-    }
+        [[FakeNetworkModule networkManager] getAptInfosWithFarRightLat:visibleRegion.farRight.latitude
+                                                       withFarRightLng:visibleRegion.farRight.longitude
+                                                       withNearLeftLat:visibleRegion.nearLeft.latitude
+                                                       withNearLeftLng:visibleRegion.nearLeft.longitude
+                                                   withCompletionBlock:^(RLMArray<AptDataSet *> *aptList) {
 
-    // 등록된 핀
-    for (AptDataSet *aptData in self.aptList) {
-        
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake(aptData.marker.lat, aptData.marker.lng);
-        
-        marker.iconView = [[UIImageView alloc] init];       // UIImageView를 만들어 넣음
-        marker.iconView.tag = aptData.id;                   // pk값 iconView.tag에 저장
-        [self setMarkerImage:marker withMarkerData:aptData.marker isSelected:NO];   // 마커 이미지 세팅
-        
+                                                       [self setMarkers:aptList];    // Set Markers
+                                                   }];
+    } else {
+        self.notiZoomUpMessageView.hidden = NO;
     }
+    
 }
+
 
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     NSLog(@"didTapMarker");
-    
-    if (mapView.selectedMarker != nil) {
-        MarkerDataSet *markerData = [[DataCenter sharedInstance] findMarkerDataWithPK:mapView.selectedMarker.iconView.tag];
-        [self setMarkerImage:mapView.selectedMarker withMarkerData:markerData isSelected:NO];   // 이전 선택했던 마커 선택해제
-    }
+//    [mapView animateToLocation:marker.position];
     
     MarkerDataSet *markerData = [[DataCenter sharedInstance] findMarkerDataWithPK:marker.iconView.tag];
     [self setMarkerImage:marker withMarkerData:markerData isSelected:YES];      // 마커 이미지 Selected로 세팅
  
-    NSLog(@"end didTapMarker");
     mapView.selectedMarker = marker;    // 선택 마커 세팅
-
+    
     return YES;
 }
 
 - (nullable UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
     NSLog(@"markerInfoWindow");
-    
+
     // 그림자, 선택 마커 중심으로 이동 처리 필요
     
     // MarkerDetailView
@@ -164,19 +153,45 @@
     markerDetailView.frame = CGRectMake(0, 0, self.mapView.frame.size.width, MARKER_DETAIL_VIEW_HEIGHT);
     
     AptDataSet *aptData = [[DataCenter sharedInstance] findAptDataWithPK:marker.iconView.tag];
-    [self.markerDetailView showMarkerDetailView:aptData];       // markerDetailView 정보 세팅
-
+    
+    marker.tracksInfoWindowChanges = YES;           // image 받아온 후, 다시 렌더링할 수 있도록 세팅
+    [markerDetailView showMarkerDetailView:aptData withCompletionBlock:^{
+        marker.tracksInfoWindowChanges = NO;        // image 받아 온 후, 다시 NO로 세팅
+    }];    // markerDetailView 정보 세팅
+    
     
     return markerDetailView;
 }
 
+- (void)mapView:(GMSMapView *)mapView didCloseInfoWindowOfMarker:(GMSMarker *)marker {
+    NSLog(@"didCloseInfoWindowOfMarker");
+    
+    MarkerDataSet *markerData = [[DataCenter sharedInstance] findMarkerDataWithPK:mapView.selectedMarker.iconView.tag];
+    [self setMarkerImage:mapView.selectedMarker withMarkerData:markerData isSelected:NO];   // 선택되어있던 마커 선택해제
+}
+
 
 #pragma mark - Custom Methods
+
+// Set Markers Method
+- (void)setMarkers:(RLMArray<AptDataSet *> *)aptList {
+
+    for (AptDataSet *aptData in aptList) {
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = CLLocationCoordinate2DMake(aptData.marker.lat, aptData.marker.lng);
+        
+        marker.iconView = [[UIImageView alloc] init];       // UIImageView를 만들어 넣음
+        marker.iconView.tag = aptData.id;                   // pk값 iconView.tag에 저장
+        [self setMarkerImage:marker withMarkerData:aptData.marker isSelected:NO];   // 마커 이미지 세팅
+        
+        marker.map = self.mapView;
+    }
+}
+
 // Marker Img Setting Method
 - (void)setMarkerImage:(GMSMarker *)marker withMarkerData:(MarkerDataSet *)markerData isSelected:(BOOL)isSelected {
-
+    
     NSString *markerUrlStr;
-
     if (isSelected) {
         markerUrlStr = self.mapView.camera.zoom>=LARGE_MARKER_ZOOM ? markerData.largeSelected : markerData.smallSelected;
         marker.zIndex = 1;      // 마커 가려지지 않게 처리
@@ -190,15 +205,15 @@
     [SVProgressHUD show];       // show SVProgressHUD
     [(UIImageView *)marker.iconView sd_setImageWithURL:markerUrl
                                       placeholderImage:((UIImageView *)marker.iconView).image   // 이전 쓰던 마커이미지 placeholderImage로 사용
+                                               options:SDWebImageHighPriority
                                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                                  [SVProgressHUD dismiss];           // dismiss SVProgressHUD
                                                  
                                                  marker.iconView.frame = self.mapView.camera.zoom>=LARGE_MARKER_ZOOM ? CGRectMake(0, 0, 80, 70) : CGRectMake(0, 0, 80, 35);
                                                  [marker.iconView setContentMode:UIViewContentModeScaleAspectFit];
-
-                                                 marker.map = self.mapView;
                                                  
                                              }];
+    
 }
 
 

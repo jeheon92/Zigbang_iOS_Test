@@ -15,9 +15,9 @@
 
 
 #pragma mark - Fake Network Methods
-- (RLMArray<AptDataSet *> *)getAptInfosWithFarRightLat:(CGFloat)frLat      // FarRight : Top Right, corner of the mapView camera
-                                       withFarRightLng:(CGFloat)frLng
-                                       withNearLeftLat:(CGFloat)nlLat      // NearLeft : Bottom Left, corner of the mapView camera
-                                       withNearLeftLng:(CGFloat)nlLng;
-
+- (void)getAptInfosWithFarRightLat:(CGFloat)frLat      // FarRight : Top Right, corner of the mapView camera
+                   withFarRightLng:(CGFloat)frLng
+                   withNearLeftLat:(CGFloat)nlLat      // NearLeft : Bottom Left, corner of the mapView camera
+                   withNearLeftLng:(CGFloat)nlLng
+               withCompletionBlock:(void (^)(RLMArray<AptDataSet *> *aptList))completionBlock;
 @end
