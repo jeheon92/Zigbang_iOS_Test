@@ -10,5 +10,6 @@ target 'JHZigbangTest' do
   pod 'GoogleMaps'
   pod 'Realm'
   pod 'SDWebImage', '~>3.8'
+  pod 'SVProgressHUD'
 
 end

@@ -35,12 +35,10 @@
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
         for (NSDictionary *aptDic in aptDicArr) {
-
-            AptDataSet *aptData = [AptDataSet makeAptDataWithDic:aptDic];
-            [realm addOrUpdateObject:aptData];     // Realm DB에 Add or Update
-
-            [aptArr addObject:aptData];
+            [aptArr addObject:[AptDataSet makeAptDataWithDic:aptDic]];
         }
+
+        [realm addOrUpdateObjectsFromArray:aptArr];     // Realm DB에 Add or Update
     }];
     
     NSLog(@"Add or Update: %@", aptArr);

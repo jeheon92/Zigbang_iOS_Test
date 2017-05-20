@@ -40,7 +40,7 @@
     aptData.image = [aptDic objectForKey:@"image"];
     aptData.brand = [aptDic objectForKey:@"brand"];
     aptData.households = [[aptDic objectForKey:@"households"] integerValue];
-    aptData.buildDate = [aptDic objectForKey:@"buildDate"];
+    aptData.buildDate = [[aptDic objectForKey:@"buildDate"] integerValue];
     aptData.price = [[aptDic objectForKey:@"price"] integerValue];
     aptData.floorArea = [[aptDic objectForKey:@"floorArea"] doubleValue];
     

@@ -23,7 +23,7 @@
 @property NSString *image;
 @property NSString *brand;
 @property NSInteger households;
-@property NSString *buildDate;
+@property NSInteger buildDate;
 @property NSInteger price;
 @property CGFloat floorArea;
 
