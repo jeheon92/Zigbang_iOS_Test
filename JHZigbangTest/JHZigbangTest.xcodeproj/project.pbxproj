@@ -12,11 +12,13 @@
 		3FA10B421ED000DD0089BBB4 /* MarkerDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA10B411ED000DD0089BBB4 /* MarkerDetailView.m */; };
 		3FA10B441ED000F60089BBB4 /* MarkerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FA10B431ED000F60089BBB4 /* MarkerDetailView.xib */; };
 		3FAC92AC1ECE0245005F3BA0 /* FakeNetworkModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC92AB1ECE0245005F3BA0 /* FakeNetworkModule.m */; };
+		3FC128581ED1BDE20047FC90 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC128571ED1BDE20047FC90 /* ListViewController.m */; };
+		3FC1285B1ED1CD190047FC90 /* AptTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC1285A1ED1CD190047FC90 /* AptTableViewCell.m */; };
 		3FC95BBA1ECD61C900758A3F /* DataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC95BB91ECD61C900758A3F /* DataSet.m */; };
 		3FDFEECA1ECD819300CFC1EF /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDFEEC91ECD819300CFC1EF /* DataCenter.m */; };
 		3FFE85A11ECD46BA002A54EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE85A01ECD46BA002A54EB /* main.m */; };
 		3FFE85A41ECD46BA002A54EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE85A31ECD46BA002A54EB /* AppDelegate.m */; };
-		3FFE85A71ECD46BA002A54EB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE85A61ECD46BA002A54EB /* MainViewController.m */; };
+		3FFE85A71ECD46BA002A54EB /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE85A61ECD46BA002A54EB /* MapViewController.m */; };
 		3FFE85AA1ECD46BA002A54EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFE85A81ECD46BA002A54EB /* Main.storyboard */; };
 		3FFE85AC1ECD46BA002A54EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FFE85AB1ECD46BA002A54EB /* Assets.xcassets */; };
 		3FFE85AF1ECD46BA002A54EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FFE85AD1ECD46BA002A54EB /* LaunchScreen.storyboard */; };
@@ -32,6 +34,10 @@
 		3FAC92AA1ECE0245005F3BA0 /* FakeNetworkModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeNetworkModule.h; sourceTree = "<group>"; };
 		3FAC92AB1ECE0245005F3BA0 /* FakeNetworkModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeNetworkModule.m; sourceTree = "<group>"; };
 		3FC128541ED16FF30047FC90 /* libHCSStarRatingView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHCSStarRatingView.a; path = "../../../Library/Developer/Xcode/DerivedData/JHZigbangTest-akopyymmjkhfbqguanywnznrjmqu/Build/Products/Debug-iphoneos/HCSStarRatingView/libHCSStarRatingView.a"; sourceTree = "<group>"; };
+		3FC128561ED1BDE20047FC90 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		3FC128571ED1BDE20047FC90 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		3FC128591ED1CD190047FC90 /* AptTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AptTableViewCell.h; sourceTree = "<group>"; };
+		3FC1285A1ED1CD190047FC90 /* AptTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AptTableViewCell.m; sourceTree = "<group>"; };
 		3FC95BB81ECD61C900758A3F /* DataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSet.h; sourceTree = "<group>"; };
 		3FC95BB91ECD61C900758A3F /* DataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSet.m; sourceTree = "<group>"; };
 		3FDFEEC81ECD819300CFC1EF /* DataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCenter.h; sourceTree = "<group>"; };
@@ -40,8 +46,8 @@
 		3FFE85A01ECD46BA002A54EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FFE85A21ECD46BA002A54EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FFE85A31ECD46BA002A54EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3FFE85A51ECD46BA002A54EB /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		3FFE85A61ECD46BA002A54EB /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		3FFE85A51ECD46BA002A54EB /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		3FFE85A61ECD46BA002A54EB /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		3FFE85A91ECD46BA002A54EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FFE85AB1ECD46BA002A54EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FFE85AE1ECD46BA002A54EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +68,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F860E2A1ED1DD63008DE7A1 /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FFE85A51ECD46BA002A54EB /* MapViewController.h */,
+				3FFE85A61ECD46BA002A54EB /* MapViewController.m */,
+				3FA10B451ED001010089BBB4 /* MarkerDetailView */,
+			);
+			name = MapViewController;
+			sourceTree = "<group>";
+		};
+		3F860E2B1ED1DD8D008DE7A1 /* ListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FC128561ED1BDE20047FC90 /* ListViewController.h */,
+				3FC128571ED1BDE20047FC90 /* ListViewController.m */,
+				3FC1285C1ED1CD1D0047FC90 /* AptTableViewCell */,
+			);
+			name = ListViewController;
+			sourceTree = "<group>";
+		};
 		3FA10B451ED001010089BBB4 /* MarkerDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +106,15 @@
 				3F5876D41ECD664A0066A7D6 /* mobile.json */,
 			);
 			name = FakeNetwork;
+			sourceTree = "<group>";
+		};
+		3FC1285C1ED1CD1D0047FC90 /* AptTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3FC128591ED1CD190047FC90 /* AptTableViewCell.h */,
+				3FC1285A1ED1CD190047FC90 /* AptTableViewCell.m */,
+			);
+			name = AptTableViewCell;
 			sourceTree = "<group>";
 		};
 		3FC95BAF1ECD4C4400758A3F /* AppDelegate */ = {
@@ -106,9 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				3FFE85A81ECD46BA002A54EB /* Main.storyboard */,
-				3FFE85A51ECD46BA002A54EB /* MainViewController.h */,
-				3FFE85A61ECD46BA002A54EB /* MainViewController.m */,
-				3FA10B451ED001010089BBB4 /* MarkerDetailView */,
+				3F860E2A1ED1DD63008DE7A1 /* MapViewController */,
+				3F860E2B1ED1DD8D008DE7A1 /* ListViewController */,
 			);
 			name = "View & Controller";
 			sourceTree = "<group>";
@@ -298,12 +332,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FFE85A71ECD46BA002A54EB /* MainViewController.m in Sources */,
+				3FFE85A71ECD46BA002A54EB /* MapViewController.m in Sources */,
 				3FDFEECA1ECD819300CFC1EF /* DataCenter.m in Sources */,
+				3FC128581ED1BDE20047FC90 /* ListViewController.m in Sources */,
 				3FFE85A41ECD46BA002A54EB /* AppDelegate.m in Sources */,
 				3FA10B421ED000DD0089BBB4 /* MarkerDetailView.m in Sources */,
 				3FC95BBA1ECD61C900758A3F /* DataSet.m in Sources */,
 				3FAC92AC1ECE0245005F3BA0 /* FakeNetworkModule.m in Sources */,
+				3FC1285B1ED1CD190047FC90 /* AptTableViewCell.m in Sources */,
 				3FFE85A11ECD46BA002A54EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

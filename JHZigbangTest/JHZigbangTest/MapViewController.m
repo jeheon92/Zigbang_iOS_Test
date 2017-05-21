@@ -1,19 +1,23 @@
 //
-//  MainViewController.m
+//  MapViewController.m
 //  JHZigbangTest
 //
 //  Created by Jeheon Choi on 2017. 5. 18..
 //  Copyright © 2017년 JeheonChoi. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "MapViewController.h"
 #import "MarkerDetailView.h"
+#import "ListViewController.h"
 
 #define SMALL_MARKER_ZOOM 14.0f
 #define LARGE_MARKER_ZOOM 16.0f
 #define MARKER_DETAIL_VIEW_HEIGHT 230.0f
 
-@interface MainViewController () <GMSMapViewDelegate>
+@interface MapViewController () <GMSMapViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIView *topBar;
+@property (weak, nonatomic) ListViewController *listVC;
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *moveToJamwonBtn;
@@ -22,8 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *zoomDownBtn;
 @property (weak, nonatomic) IBOutlet UIView *notiZoomUpMessageView;
 
-@property (nonatomic) BOOL showingSVProgressHUD;
-
 @property (weak, nonatomic) MarkerDetailView *markerDetailView;
 @property (nonatomic) BOOL movingToMarkerPosition;      // 선택 마커로 이동 중일 때, YES
 @property (nonatomic) GMSMarker *selectedMarker;
@@ -31,12 +33,18 @@
 @end
 
 
-@implementation MainViewController
+@implementation MapViewController
 
 #pragma mark - ViewController Basic & Init Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    // Top Bar Shadow setting
+    self.topBar.layer.shadowOffset = CGSizeMake(0.0f, 3.0f);
+    self.topBar.layer.shadowRadius = 3.0f;
+    self.topBar.layer.shadowOpacity = 0.2f;
+    
+    [self setListViewController];
     [self initWithMapView];
 }
 
@@ -46,9 +54,7 @@
     self.markerDetailView.frame = CGRectMake(0, self.mapView.frame.size.height-MARKER_DETAIL_VIEW_HEIGHT, self.mapView.frame.size.width, MARKER_DETAIL_VIEW_HEIGHT);        // markerDetailView frame 확정
 }
 
-
 - (void)initWithMapView {
-    
     self.mapView.myLocationEnabled = YES;           // myLocation Enabled
     self.mapView.settings.rotateGestures = NO;      // rotate gesture Disabled
     [self.mapView bringSubviewToFront:self.notiZoomUpMessageView];
@@ -82,6 +88,28 @@
         });
     });
 }
+
+#pragma mark - ListViewController-related Methods
+- (void)setListViewController {
+    
+    UIStoryboard *makeStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ListViewController *listVC = [makeStoryBoard instantiateViewControllerWithIdentifier:@"ListViewController"];
+    
+    listVC.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
+    self.listVC = listVC;
+    [self addChildViewController:listVC];
+    
+}
+
+- (IBAction)showListBtnAction:(id)sender {
+    
+    [self.view addSubview:self.listVC.view];
+    
+    [UIView animateWithDuration:0.5f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.listVC.view.frame = self.view.frame;
+    } completion:nil];
+}
+
 
 
 #pragma mark - MapView Btns Action Methods
@@ -242,6 +270,28 @@
         self.markerDetailView.hidden = YES;
         self.selectedMarker = nil;       // selectedMarker nil로 세팅
     }
+}
+
+// ListVC로부터 선택한 아파트 보기
+- (void)showSelectedApt:(AptDataSet *)aptData {
+    NSLog(@"showSelectedApt aptData : %@", aptData);
+    // 임시로 가짜 marker 생성
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.iconView = [[UIImageView alloc] init];       // UIImageView를 만들어 넣음
+    marker.iconView.tag = aptData.id;                   // pk값 iconView.tag에 저장
+
+    self.movingToMarkerPosition = YES;
+    self.selectedMarker = marker;
+    
+    [self.markerDetailView showMarkerDetailView:aptData];    // markerDetailView 정보 세팅
+    self.markerDetailView.hidden = NO;
+
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:aptData.marker.lat
+                                                            longitude:aptData.marker.lng
+                                                                 zoom:LARGE_MARKER_ZOOM];
+    
+    [self.mapView setCamera:camera];   // 이동 후, idleAtCameraPosition 불리면서 선택 마커 표기
 }
 
 

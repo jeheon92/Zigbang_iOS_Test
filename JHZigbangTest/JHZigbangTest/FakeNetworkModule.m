@@ -10,7 +10,7 @@
 
 @interface FakeNetworkModule ()
 
-@property (nonatomic) RLMArray<AptDataSet *> *jsonAptDataArr;
+@property (nonatomic) NSArray *jsonAptDataArr;
 
 @end
 
@@ -57,7 +57,7 @@
     
 
     // 서버 통신과정 생략
-    // 원래는 서버에서 처리할 부분 ----------------------------- //
+    // 원래는 서버에서 처리할 부분 ------------------------------ //
     
     // 위도는 보통 frLat > nlLat (예외 상황 180 ~ -180, 태평양..)
     // 경도는 항상 frLng > nlLng
@@ -78,6 +78,20 @@
     RLMArray<AptDataSet *> *aptList = [[DataCenter sharedInstance] setAptDataWithAptDicArr:aptDicArr];  // 데이터 Add or Update
     
     completionBlock(aptList);  // 지도있는 컨트롤러로 반환
+    
+}
+
+
+- (void)getAptListWithCompletionBlock:(void (^)(RLMArray<AptDataSet *> *aptList))completionBlock {
+
+
+    // 서버 통신과정 생략 ------------------------------------ //
+    // 데이터량이 작으므로, 전부 보냄
+    // -------------------------------------------------- //
+    
+    RLMArray<AptDataSet *> *aptList = [[DataCenter sharedInstance] setAptDataWithAptDicArr:self.jsonAptDataArr];  // 데이터 Add or Update
+    
+    completionBlock(aptList);
     
 }
 

@@ -20,4 +20,7 @@
                    withNearLeftLat:(CGFloat)nlLat      // NearLeft : Bottom Left, corner of the mapView camera
                    withNearLeftLng:(CGFloat)nlLng
                withCompletionBlock:(void (^)(RLMArray<AptDataSet *> *aptList))completionBlock;
+
+- (void)getAptListWithCompletionBlock:(void (^)(RLMArray<AptDataSet *> *aptList))completionBlock;
+
 @end

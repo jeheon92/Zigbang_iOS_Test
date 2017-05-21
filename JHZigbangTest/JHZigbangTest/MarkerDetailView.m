@@ -31,6 +31,7 @@
     self = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self.class) owner:self options:nil][0];
     self = [super init];
     if (self) {
+        // Shadow setting
         self.layer.shadowOffset = CGSizeMake(0.0f, -10.0f);
         self.layer.shadowRadius = 10.0f;
         self.layer.shadowOpacity = 0.4f;

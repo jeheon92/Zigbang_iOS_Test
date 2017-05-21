@@ -1,5 +1,5 @@
 //
-//  MainViewController.h
+//  MapViewController.h
 //  JHZigbangTest
 //
 //  Created by Jeheon Choi on 2017. 5. 18..
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController
+@interface MapViewController : UIViewController
 
+- (void)showSelectedApt:(AptDataSet *)aptData;
 
 @end
 
