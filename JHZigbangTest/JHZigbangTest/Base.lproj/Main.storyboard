@@ -79,6 +79,18 @@
                                             <constraint firstItem="c2R-q0-Mk8" firstAttribute="centerX" secondItem="xEq-eq-axT" secondAttribute="centerX" id="yHC-U4-H5e"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtU-b8-j3f">
+                                        <rect key="frame" x="327" y="467.5" width="36" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="HtU-b8-j3f" secondAttribute="height" multiplier="1:1" id="XhF-kU-MEQ"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                        <state key="normal" image="jamwondongBtn"/>
+                                        <connections>
+                                            <action selector="moveToJamwonBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UTP-bE-LoL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -87,9 +99,12 @@
                                     <constraint firstAttribute="bottom" secondItem="ys9-wN-3gN" secondAttribute="bottom" constant="20" id="7U9-lL-ldv"/>
                                     <constraint firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" constant="12" id="DwH-1a-wFd"/>
                                     <constraint firstItem="xEq-eq-axT" firstAttribute="centerY" secondItem="ys9-wN-3gN" secondAttribute="centerY" id="H6n-cS-QRT"/>
+                                    <constraint firstItem="HtU-b8-j3f" firstAttribute="width" secondItem="ys9-wN-3gN" secondAttribute="width" id="TYy-b7-tsf"/>
                                     <constraint firstItem="Evx-1K-WXd" firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" id="WPy-Tw-PMb"/>
                                     <constraint firstItem="xEq-eq-axT" firstAttribute="height" secondItem="ys9-wN-3gN" secondAttribute="height" id="WhD-Hc-oxh"/>
                                     <constraint firstItem="4Cd-z1-scg" firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" id="YQy-E8-rVt"/>
+                                    <constraint firstItem="HtU-b8-j3f" firstAttribute="trailing" secondItem="ys9-wN-3gN" secondAttribute="trailing" id="c3m-Ce-CFM"/>
+                                    <constraint firstItem="Evx-1K-WXd" firstAttribute="top" secondItem="HtU-b8-j3f" secondAttribute="bottom" constant="15" id="cWV-bw-VKS"/>
                                     <constraint firstItem="Evx-1K-WXd" firstAttribute="width" secondItem="ys9-wN-3gN" secondAttribute="width" id="hj0-Eq-0kD"/>
                                     <constraint firstItem="ys9-wN-3gN" firstAttribute="top" secondItem="4Cd-z1-scg" secondAttribute="bottom" constant="0.5" id="yPq-3p-3Bt"/>
                                     <constraint firstItem="4Cd-z1-scg" firstAttribute="top" secondItem="Evx-1K-WXd" secondAttribute="bottom" constant="20" id="yTP-st-6AE"/>
@@ -109,6 +124,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="E90-ws-tim" id="nEs-rh-w1Q"/>
+                        <outlet property="moveToJamwonBtn" destination="HtU-b8-j3f" id="5Rm-5S-C6P"/>
                         <outlet property="myLocationBtn" destination="Evx-1K-WXd" id="4LL-hB-krw"/>
                         <outlet property="notiZoomUpMessageView" destination="xEq-eq-axT" id="z2h-am-OCE"/>
                         <outlet property="zoomDownBtn" destination="ys9-wN-3gN" id="6py-IS-aFf"/>
@@ -121,6 +137,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="jamwondongBtn" width="48" height="48"/>
         <image name="myLocationBtn" width="48" height="48"/>
         <image name="zoomDownBtn" width="48" height="48"/>
         <image name="zoomUpBtn" width="48" height="48"/>

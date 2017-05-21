@@ -16,6 +16,7 @@
 @interface MainViewController () <GMSMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *moveToJamwonBtn;
 @property (weak, nonatomic) IBOutlet UIButton *myLocationBtn;
 @property (weak, nonatomic) IBOutlet UIButton *zoomUpBtn;
 @property (weak, nonatomic) IBOutlet UIButton *zoomDownBtn;
@@ -53,7 +54,7 @@
     [self.mapView bringSubviewToFront:self.notiZoomUpMessageView];
     
     // MapView Btns
-    for (UIButton *btn in @[self.myLocationBtn, self.zoomUpBtn, self.zoomDownBtn]) {
+    for (UIButton *btn in @[self.moveToJamwonBtn, self.myLocationBtn, self.zoomUpBtn, self.zoomDownBtn]) {
         [self.mapView bringSubviewToFront:btn];
         btn.layer.borderWidth = 0.5f;
         btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -84,6 +85,13 @@
 
 
 #pragma mark - MapView Btns Action Methods
+- (IBAction)moveToJamwonBtnAction:(id)sender {
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:37.513640f
+                                                            longitude:127.011266f
+                                                                 zoom:self.mapView.camera.zoom];
+    
+    [self.mapView setCamera:camera];    // 잠원동 중심으로 카메라 이동
+}
 
 - (IBAction)myLocationBtnAction:(id)sender {
     
@@ -91,8 +99,7 @@
                                                             longitude:[self.mapView myLocation].coordinate.longitude
                                                                  zoom:self.mapView.camera.zoom];
     
-    [self.mapView setCamera:camera];    // 내 위치 중심으로 카메라 설정
-    
+    [self.mapView setCamera:camera];    // 내 위치 중심으로 카메라 이동
 }
 
 - (IBAction)zoomUpBtnAction:(id)sender {
@@ -101,7 +108,6 @@
                                                             longitude:self.mapView.camera.target.longitude
                                                                  zoom:self.mapView.camera.zoom + 0.5f];
     [self.mapView animateToCameraPosition:camera];
-
 }
 
 - (IBAction)zoomDownBtnAction:(id)sender {
@@ -110,7 +116,6 @@
                                                             longitude:self.mapView.camera.target.longitude
                                                                  zoom:self.mapView.camera.zoom - 0.5f];
     [self.mapView animateToCameraPosition:camera];
-
 }
 
 
