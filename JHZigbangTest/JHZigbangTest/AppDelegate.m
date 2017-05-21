@@ -16,6 +16,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [NSThread sleepForTimeInterval:1.0f];   // LaunchScreen 1sec Delay
+    
     [GMSServices provideAPIKey:GOOGLE_API_KEY];
     [SVProgressHUD setForegroundColor:[UIColor colorWithRed:236/255.0 green:143/255.0 blue:58/255.0 alpha:1.0f]];  // SVProgressHUD Color setting
 //    [SVProgressHUD setForegroundColor:[UIColor lightGrayColor]];  // SVProgressHUD Color setting
