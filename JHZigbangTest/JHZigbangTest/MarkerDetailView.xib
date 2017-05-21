@@ -33,7 +33,51 @@
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서초구 잠원동 ・2016년 준공 ・843세대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6v-wZ-RJj">
                             <rect key="frame" x="0.0" y="21" width="187" height="13.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="13.5" id="Ks4-lc-1Z6"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="c5t-8t-61G">
+                    <rect key="frame" x="267" y="171.5" width="98" height="13.5"/>
+                    <subviews>
+                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZAZ-0w-ZsG" customClass="HCSStarRatingView">
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="13.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.99976617097854614" green="0.64231413602828979" blue="0.036274701356887817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="GB9-Ni-yD3"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                    <real key="value" value="4.5999999999999996"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="YES"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="emptyStarColor">
+                                    <color key="value" red="0.59561783075332642" green="0.60748052597045898" blue="0.63237011432647705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="starBorderColor">
+                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="accurateHalfStars" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFS-AY-J7k">
+                            <rect key="frame" x="79" y="0.0" width="19" height="13.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -71,6 +115,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Web-xf-Aly" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8Ny-Fl-5Rc"/>
+                <constraint firstItem="c5t-8t-61G" firstAttribute="height" secondItem="z6v-wZ-RJj" secondAttribute="height" id="DTG-6Z-hZj"/>
                 <constraint firstItem="EUn-CN-31f" firstAttribute="bottom" secondItem="wd9-Tl-wfH" secondAttribute="bottom" constant="-10" id="Efv-gS-2gQ"/>
                 <constraint firstItem="wd9-Tl-wfH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MHg-zw-gSN"/>
                 <constraint firstItem="nVH-Tz-ZY9" firstAttribute="height" secondItem="wd9-Tl-wfH" secondAttribute="height" multiplier="0.5" constant="-15" id="THn-Xe-SA6"/>
@@ -80,9 +125,11 @@
                 <constraint firstItem="nVH-Tz-ZY9" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="kIl-6U-29D"/>
                 <constraint firstItem="nVH-Tz-ZY9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lOD-BW-DOB"/>
                 <constraint firstItem="wd9-Tl-wfH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mgA-tp-pYo"/>
+                <constraint firstItem="c5t-8t-61G" firstAttribute="trailing" secondItem="wd9-Tl-wfH" secondAttribute="trailing" constant="-10" id="n7L-1X-DFd"/>
                 <constraint firstItem="wd9-Tl-wfH" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="tU8-0H-vcQ"/>
                 <constraint firstItem="nVH-Tz-ZY9" firstAttribute="bottom" secondItem="wd9-Tl-wfH" secondAttribute="bottom" id="v98-d7-7Fy"/>
                 <constraint firstItem="Web-xf-Aly" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="yOW-zx-W1M"/>
+                <constraint firstItem="c5t-8t-61G" firstAttribute="bottom" secondItem="wd9-Tl-wfH" secondAttribute="bottom" constant="-10" id="ySt-ds-9Eb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -91,6 +138,9 @@
                 <outlet property="nameLabel" destination="Nnu-U1-YzP" id="1Fq-fp-N0h"/>
                 <outlet property="priceAndFloorAreaLabel" destination="Bor-qk-sjp" id="khs-HZ-Z0S"/>
                 <outlet property="pricePerPyeongLabel" destination="MGM-a2-Vgo" id="bJP-GZ-RLX"/>
+                <outlet property="starScoreLabel" destination="kFS-AY-J7k" id="U4a-oI-WfH"/>
+                <outlet property="starScoreStackView" destination="c5t-8t-61G" id="Hc3-Ie-Gr8"/>
+                <outlet property="starScoreView" destination="ZAZ-0w-ZsG" id="kch-jP-3En"/>
             </connections>
             <point key="canvasLocation" x="32.5" y="73"/>
         </view>

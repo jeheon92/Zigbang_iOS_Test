@@ -12,11 +12,11 @@
 @import GoogleMaps;
 #define GOOGLE_API_KEY @"AIzaSyC8MJpwlcqAD4oHWQuTDiXWlKcMbE1okD8"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <SVProgressHUD.h>
+#import "SVProgressHUD.h"
+#import <HCSStarRatingView/HCSStarRatingView.h>
 
 #import "DataSet.h"
 #import "DataCenter.h"
 #import "FakeNetworkModule.h"
-
 
 #endif /* PrefixHeader_pch */

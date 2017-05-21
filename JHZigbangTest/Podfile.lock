@@ -4,6 +4,7 @@ PODS:
   - GoogleMaps/Base (2.2.0)
   - GoogleMaps/Maps (2.2.0):
     - GoogleMaps/Base
+  - HCSStarRatingView (1.5)
   - Realm (2.7.0):
     - Realm/Headers (= 2.7.0)
   - Realm/Headers (2.7.0)
@@ -14,16 +15,18 @@ PODS:
 
 DEPENDENCIES:
   - GoogleMaps
+  - HCSStarRatingView (~> 1.5)
   - Realm
   - SDWebImage (~> 3.8)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  HCSStarRatingView: 1d18f79654735514cd6f00e6d90e38cb6320dc31
   Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 93d1383222318c9b02fad9f449da40c59ce471c5
+PODFILE CHECKSUM: aba10f793a0f111216e8f5a90b5f04a3116e6969
 
 COCOAPODS: 1.2.0.beta.1

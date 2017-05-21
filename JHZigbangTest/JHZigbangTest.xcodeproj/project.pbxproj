@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2944291B91E34A3B9FC55711 /* libPods-JHZigbangTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EBFD0A5895B361EECBD3C5 /* libPods-JHZigbangTest.a */; };
+		000ACB18233D3010233313BE /* Pods_JHZigbangTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBA1276F4AD7E03161BCD44 /* Pods_JHZigbangTest.framework */; };
 		3F5876D51ECD664A0066A7D6 /* mobile.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F5876D41ECD664A0066A7D6 /* mobile.json */; };
 		3FA10B421ED000DD0089BBB4 /* MarkerDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA10B411ED000DD0089BBB4 /* MarkerDetailView.m */; };
 		3FA10B441ED000F60089BBB4 /* MarkerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FA10B431ED000F60089BBB4 /* MarkerDetailView.xib */; };
@@ -23,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CBA1276F4AD7E03161BCD44 /* Pods_JHZigbangTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JHZigbangTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5876D41ECD664A0066A7D6 /* mobile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mobile.json; sourceTree = "<group>"; };
 		3FA10B401ED000DD0089BBB4 /* MarkerDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerDetailView.h; sourceTree = "<group>"; };
 		3FA10B411ED000DD0089BBB4 /* MarkerDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerDetailView.m; sourceTree = "<group>"; };
@@ -30,6 +31,7 @@
 		3FA80C3E1ECD49DF00A0935E /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3FAC92AA1ECE0245005F3BA0 /* FakeNetworkModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeNetworkModule.h; sourceTree = "<group>"; };
 		3FAC92AB1ECE0245005F3BA0 /* FakeNetworkModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeNetworkModule.m; sourceTree = "<group>"; };
+		3FC128541ED16FF30047FC90 /* libHCSStarRatingView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHCSStarRatingView.a; path = "../../../Library/Developer/Xcode/DerivedData/JHZigbangTest-akopyymmjkhfbqguanywnznrjmqu/Build/Products/Debug-iphoneos/HCSStarRatingView/libHCSStarRatingView.a"; sourceTree = "<group>"; };
 		3FC95BB81ECD61C900758A3F /* DataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSet.h; sourceTree = "<group>"; };
 		3FC95BB91ECD61C900758A3F /* DataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSet.m; sourceTree = "<group>"; };
 		3FDFEEC81ECD819300CFC1EF /* DataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCenter.h; sourceTree = "<group>"; };
@@ -44,7 +46,6 @@
 		3FFE85AB1ECD46BA002A54EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FFE85AE1ECD46BA002A54EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FFE85B01ECD46BA002A54EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43EBFD0A5895B361EECBD3C5 /* libPods-JHZigbangTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JHZigbangTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A78992E9ACD7190EDF0C00 /* Pods-JHZigbangTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHZigbangTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-JHZigbangTest/Pods-JHZigbangTest.release.xcconfig"; sourceTree = "<group>"; };
 		D931501F4F7D1CCE0D8987EF /* Pods-JHZigbangTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHZigbangTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JHZigbangTest/Pods-JHZigbangTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2944291B91E34A3B9FC55711 /* libPods-JHZigbangTest.a in Frameworks */,
+				000ACB18233D3010233313BE /* Pods_JHZigbangTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +158,8 @@
 		6580598FCD8B9DAD672BF23D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				43EBFD0A5895B361EECBD3C5 /* libPods-JHZigbangTest.a */,
+				3FC128541ED16FF30047FC90 /* libHCSStarRatingView.a */,
+				2CBA1276F4AD7E03161BCD44 /* Pods_JHZigbangTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -21,14 +21,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *zoomDownBtn;
 @property (weak, nonatomic) IBOutlet UIView *notiZoomUpMessageView;
 
+@property (nonatomic) BOOL showingSVProgressHUD;
+
 @property (weak, nonatomic) MarkerDetailView *markerDetailView;
 @property (nonatomic) BOOL movingToMarkerPosition;      // 선택 마커로 이동 중일 때, YES
 @property (nonatomic) GMSMarker *selectedMarker;
 
 @end
 
+
 @implementation MainViewController
 
+#pragma mark - ViewController Basic & Init Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -138,13 +142,11 @@
     }
 }
 
-
 - (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
     NSLog(@"didChangeCameraPosition");
     
-    if (self.movingToMarkerPosition == NO) {        
-        self.markerDetailView.hidden = YES;
-        self.selectedMarker = nil;       // selectedMarker nil로 세팅
+    if (self.movingToMarkerPosition == NO) {
+        [self deselectSelectedMarker];      // 이전 선택마커 선택해제
     }
 }
 
@@ -153,6 +155,8 @@
     NSLog(@"didTapMarker");
     [mapView animateToLocation:marker.position];
     self.movingToMarkerPosition = YES;
+    
+    [self deselectSelectedMarker];      // 이전 선택마커 선택해제
     
     MarkerDataSet *markerData = [[DataCenter sharedInstance] findMarkerDataWithPK:marker.iconView.tag];
     [self setMarkerImage:marker withMarkerData:markerData isSelected:YES];      // 마커 이미지 Selected로 세팅
@@ -164,6 +168,12 @@
     self.selectedMarker = marker;       // 선택 마커 프로퍼티에 셋
     
     return YES;
+}
+
+- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+    NSLog(@"didTapAtCoordinate");
+    
+    [self deselectSelectedMarker];  // 선택마커 선택해제
 }
 
 
@@ -181,7 +191,7 @@
 
         if (self.selectedMarker.iconView.tag == marker.iconView.tag) {      // 선택마커 있는지 확인
             [self setMarkerImage:marker withMarkerData:aptData.marker isSelected:YES];  // 선택 마커 이미지 세팅
-            self.selectedMarker = nil;      // 선택 마커에서 해제
+            self.selectedMarker = marker;   // 선택마커 다시 세팅 (MapView의 모든 Marker를 clear한 후, 새로운 마커 객체를 만들었기 때문)
         } else {
             [self setMarkerImage:marker withMarkerData:aptData.marker isSelected:NO];   // 기본 마커 이미지 세팅
         }
@@ -209,13 +219,24 @@
                                       placeholderImage:((UIImageView *)marker.iconView).image   // 이전 쓰던 마커이미지 placeholderImage로 사용
                                                options:SDWebImageHighPriority
                                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                                 [SVProgressHUD dismiss];           // dismiss SVProgressHUD
+                                                 [SVProgressHUD dismiss];       // dismiss SVProgressHUD
                                                  
                                                  marker.iconView.frame = self.mapView.camera.zoom>=LARGE_MARKER_ZOOM ? CGRectMake(0, 0, 80, 70) : CGRectMake(0, 0, 80, 35);
                                                  [marker.iconView setContentMode:UIViewContentModeScaleAspectFit];
                                                  
                                              }];
     
+}
+
+// selectedMarker 선택해제 Method
+- (void)deselectSelectedMarker {
+    if (self.selectedMarker != nil) {
+        MarkerDataSet *markerData = [[DataCenter sharedInstance] findMarkerDataWithPK:self.selectedMarker.iconView.tag];
+        [self setMarkerImage:self.selectedMarker withMarkerData:markerData isSelected:NO];      // 이전 선택마커 선택해제
+      
+        self.markerDetailView.hidden = YES;
+        self.selectedMarker = nil;       // selectedMarker nil로 세팅
+    }
 }
 
 

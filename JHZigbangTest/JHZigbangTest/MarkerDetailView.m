@@ -18,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceAndFloorAreaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pricePerPyeongLabel;
 
+@property (weak, nonatomic) IBOutlet UIStackView *starScoreStackView;
+@property (weak, nonatomic) IBOutlet HCSStarRatingView *starScoreView;
+@property (weak, nonatomic) IBOutlet UILabel *starScoreLabel;
+
 @end
 
 
@@ -47,6 +51,13 @@
     self.priceAndFloorAreaLabel.text = [NSString stringWithFormat:@"%.1lf억 / %.0lf㎡", aptData.price/1000.0f+0.05f, aptData.floorArea+0.5f];   // 반올림 적용
     self.pricePerPyeongLabel.text = [NSString stringWithFormat:@"%.0lf만 / 3.3㎡", aptData.price*3.3f/aptData.floorArea + 0.5f];      // 반올림 적용
     
+    if (aptData.score > 0.0f) {
+        self.starScoreView.value = aptData.score;
+        self.starScoreLabel.text = [NSString stringWithFormat:@"%.1lf", aptData.score];
+        self.starScoreStackView.hidden = NO;
+    } else {
+        self.starScoreStackView.hidden = YES;   // 평가 없으므로, Hidden
+    }
 }
 
 
