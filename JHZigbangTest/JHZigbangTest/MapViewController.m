@@ -92,8 +92,8 @@
 #pragma mark - ListViewController-related Methods
 - (void)setListViewController {
     
-    UIStoryboard *makeStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ListViewController *listVC = [makeStoryBoard instantiateViewControllerWithIdentifier:@"ListViewController"];
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ListViewController *listVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"ListViewController"];
     
     listVC.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
     self.listVC = listVC;
