@@ -52,7 +52,7 @@
     self.nameLabel.text = aptData.name;
     self.aptInfosLabel.text = [NSString stringWithFormat:@"%@ %@ ・%ld년 준공 ・%ld세대", aptData.address.gugun, aptData.address.dong, aptData.buildDate/100, aptData.households];
     
-    self.priceAndFloorAreaLabel.text = [NSString stringWithFormat:@"%.1lf억 / %.0lf㎡", aptData.price/1000.0f+0.05f, aptData.floorArea+0.5f];   // 반올림 적용
+    self.priceAndFloorAreaLabel.text = [NSString stringWithFormat:@"%.1lf억 / %.0lf㎡", aptData.price/10000.0f+0.05f, aptData.floorArea+0.5f];   // 반올림 적용
     self.pricePerPyeongLabel.text = [NSString stringWithFormat:@"%.0lf만 / 3.3㎡", aptData.price*3.3f/aptData.floorArea + 0.5f];      // 반올림 적용
     
     if (aptData.score > 0.0f) {
